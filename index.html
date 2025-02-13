@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anushkaaaaaaaaaaaa</title>
+    <style>
+        /* Only base styles that don't change */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        pre {
+            position: fixed;
+            top: 30px;
+            bottom: 30px;
+            transition: left 500ms;
+            overflow: auto;
+            padding: 24px 12px;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+        @media screen and (max-width: 768px) {
+            pre { left: 6%; right: 6%; top: 50%; }
+        }
+        @media screen and (min-width: 768px) {
+            pre { width: 48%; left: 50%; }
+        }
+        .controls {
+            position: fixed;
+            left: 30px;
+            bottom: 10px;
+            z-index: 10;
+        }
+        .controls a {
+            color: #f28482;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <style id="style-tag"></style>
+    <pre id="style-text"></pre>
+    <span id="echo"></span>
+    <span id="heart"><i></i></span>
+    <div id="floating-container"></div>
+    <div class="controls">
+        <a href="#" id="skipAnimation">Skip 💔</a>
+        <a href="">Replay 🐥</a>
+    </div>
+
+    <script>
+        const styles = `/*
+ * Helloooooo Anushkaaaa ❤️
+ * So for valentines day, I thought why don't we make the card together? 
+ * Let me show you how I feel for you looks like in code 
+ * Ready? Let's begin...
+ */
+
+/* Pehele, page banate hai - very plain plain abhi */
+body {
+    background-color: #14213d;
+    color: #fff;
+    font-size: 1.0rem;
+    line-height: 1.4;
+    overflow: hidden;  
+}
+
+/* Let's style our code editor to make it like Anushka (beautiful) */
+pre {
+    background-color: #669bbc;
+    color: #fdf0d5;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    box-shadow: 
+        0 0 30px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(255,255,255,0.1);
+    padding: 24px 12px;
+}
+
+/* This file should be named after who it's for */
+pre::before {
+    content: '💝 Anushka.css';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px 12px 0 0;
+    padding: 0 16px;
+    line-height: 36px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #fff;
+}
+
+pre {
+    padding-top: 48px;
+}
+
+/* Let's add some colour here ✨ */
+pre em:not(.comment) { font-style: normal; }
+.comment { 
+    color: #7a8292;
+    font-style: italic;
+}
+.selector { 
+    color: #ff6b6b;
+}
+.selector .key { 
+    color: #ff6b6b;
+}
+.key { 
+    color: #da77f2;
+}
+.value { 
+    color: #ffd43b;
+}
+
+/* Add some fancy scrollbar styling */
+pre::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+pre::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+pre::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* 
+ * Thoda gaana-shaana lagado yaar...
+ */
+
+.music-player {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(239, 35, 60, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.music-player button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.music-player button:hover {
+    transform: scale(1.1);
+}
+
+.music-player input[type="text"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #fff;
+    width: 200px;
+}
+
+.music-player .volume-control {
+    width: 80px;
+    height: 3px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.music-player .volume-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Now, time to make our card...thoda heading dete hai */
+.valentine-heading {
+    position: fixed;
+    width: 300px;
+    left: calc(25% - 150px);
+    top: calc(50% - 250px);
+    text-align: center;
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #f28482;
+    text-shadow: 
+        -2px -2px 0px rgba(0,0,0,0.2),
+        2px 2px 3px rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+    z-index: 8;
+}
+
+/* A big heart for my strong girl */
+#heart, #echo {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    top: calc(50% - 150px);
+    left: calc(25% - 150px);
+    text-align: center;
+}
+
+#heart { z-index: 8; }
+#echo { z-index: 7; }
+
+#heart::before, #heart::after,
+#echo::before, #echo::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 150px;
+    height: 240px;
+    background: #ef233c;
+    border-radius: 150px 150px 0 0;
+}
+
+/* Thoda positioning */
+#heart::before, #echo::before {
+    left: 150px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+#heart::after, #echo::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* And...thode effects */
+#heart::before {
+    box-shadow: inset 6px 6px 0px 6px rgba(255,255,255,0.1);
+}
+
+#heart::after {
+    box-shadow: inset -6px -6px 0px 6px rgba(255,255,255,0.1);
+}
+
+/* Time to add into it what makes it whole (ikr this is cheesy but bear w me) */
+#heart i::before {
+    content: 'Anushka';
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    top: 35%;
+    left: 0;
+    font-style: normal;
+    color: #ffe5ec;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+    text-shadow: 
+        -1px -1px 0px rgba(0,0,0,0.2),
+        1px 1px 2px rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+}
+
+/*
+ * Background kaafi plain...
+ * How about some floating hearts? 
+ */
+
+#floating-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 24px;
+    user-select: none;
+    bottom: -50px;  /* Start below the viewport */
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh);  /* Move up by full viewport height */
+        opacity: 0;
+    }
+}
+
+/* One by one...heart-heart yayyyayayayy */
+.floating-heart:nth-child(1) { left: 10%; animation: float-up 7s linear infinite; }
+.floating-heart:nth-child(2) { left: 25%; animation: float-up 8s linear infinite 1s; }
+.floating-heart:nth-child(3) { left: 40%; animation: float-up 6s linear infinite 2s; }
+.floating-heart:nth-child(4) { left: 55%; animation: float-up 9s linear infinite 3s; }
+.floating-heart:nth-child(5) { left: 70%; animation: float-up 7s linear infinite 4s; }
+.floating-heart:nth-child(6) { left: 85%; animation: float-up 8s linear infinite 5s; }
+.floating-heart:nth-child(7) { left: 95%; animation: float-up 6s linear infinite 6s; }
+
+/*
+ * You know what I love about you?
+ * Your grin that makes things less dull  
+ * The way you scrunch your nose when you laugh
+ * Your special non-verbal language  
+ * How you always have a quick comeback to bully me
+ * And how thoughtful, caring, kind, 
+ * and a billllliooon other adjectives that I wish I could fit here...
+ * Now, let’s keep this energy going...  
+ * Just like my heartbeat when I see you 💥  
+ */
+
+/* Time to make it beat! */
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(0.95); }
+    50% { transform: scale(1.00); }
+}
+
+@keyframes echo {
+    0% { opacity: 0.1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.4); }
+}
+
+/* Add the animations */
+#heart {
+    animation: heartbeat 2000ms infinite cubic-bezier(0, 0, 0, 1.74);
+    animation-play-state: paused;
+}
+
+#echo {
+    animation: echo 2000ms infinite cubic-bezier(0, 0, 0, 1.74);
+    animation-play-state: paused;
+}
+
+/* 
+ * Ready?
+ * 3...
+ * 2...
+ * 1...
+ * Here we go!
+ */
+
+/* Start the heart beating! */
+#heart, #echo {
+    animation-play-state: running;
+}
+
+/* Let's make the background like you, and add some balls of sunshine */
+.sparkle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background-color: #fff3b0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.8; transform: scale(1); }
+}
+
+/* Some shoootingggg starrrsss */
+.shooting-star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(to right, #fff3b0, transparent);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes shoot {
+    0% { 
+        opacity: 0;
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(200px) translateY(200px);
+    }
+}
+
+/* Start wiggling your mouse, its about to be cool */
+.trail {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #fff3b0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2;
+}
+
+@keyframes fade {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.2); }
+}
+
+/* And now start clicking it - fast fast fast */
+.click-heart {
+    position: fixed;
+    font-size: 20px;
+    pointer-events: none;
+    animation: float-away 1s ease-out forwards;
+    z-index: 3;
+}
+
+@keyframes float-away {
+    0% { 
+        opacity: 1;
+        transform: scale(0.5) translateY(0);
+    }
+    100% { 
+        opacity: 0;
+        transform: scale(1.5) translateY(-50px);
+    }
+}
+
+/* Ek cute sa message - from me */
+
+.love-message:hover span.visible {
+    text-shadow: 
+        0 0 5px #fff3b0,
+        0 0 10px #fff3b0,
+        0 0 20px #bc4749,
+        0 0 30px #bc4749;
+    transition: text-shadow 0.3s ease;
+}
+
+.love-message {
+    position: fixed;
+    width: 400px;
+    left: calc(25% - 200px);
+    top: calc(50% + 180px);
+    text-align: center;
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: bold;
+    color: #eac4d5;
+    text-shadow: 
+        -1px -1px 0px rgba(0,0,0,0.2),
+        1px 1px 2px rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+    z-index: 8;
+}
+
+.love-message span {
+    opacity: 0;
+}
+
+.love-message span.visible {
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.love-message::after {
+    content: '|';
+    margin-left: 2px;
+    animation: blink 1s infinite;
+    font-weight: 100;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/*
+ * There it is... my chotu sa gift for you heehee
+ * 
+ * You know, I know this stuff is complicated,
+ * but I disagree. It's pretty simple:
+ * It's the way my heart skips a beat when I see you,
+ * It's the comfort I feel when you're near,
+ * It's the millions of little moments we share.
+ * It's our first walk around James Bond, bringing us back there no matter what lol
+ * 
+ * Just like this heart will keep beating,
+ * my affection for you will keep growing,
+ * next time, you are getting a million roses, like I promised.
+ * 
+ * Happy Valentine's Day my princess! ❤️
+ * 
+ * P.S. You're the CSS to my HTML 😉
+ */`;
+
+
+ class MusicPlayer {
+    constructor() {
+        this.audio = new Audio('yellow.mp3');  // Using relative path
+        this.isPlaying = false;
+        this.initialize();
+        // Try to autoplay when created
+        this.audio.play().catch(e => {
+            console.log('Autoplay prevented - click play to start music');
+        });
+    }
+
+    initialize() {
+        const playPauseBtn = document.getElementById('playPause');
+        const volumeControl = document.querySelector('.volume-control');
+
+        playPauseBtn.addEventListener('click', () => this.togglePlay());
+        volumeControl.addEventListener('input', (e) => this.setVolume(e.target.value));
+
+        this.audio.addEventListener('play', () => {
+            this.isPlaying = true;
+            playPauseBtn.textContent = '⏸️';
+        });
+
+        this.audio.addEventListener('pause', () => {
+            this.isPlaying = false;
+            playPauseBtn.textContent = '▶️';
+        });
+
+        this.audio.addEventListener('ended', () => {
+            this.isPlaying = false;
+            playPauseBtn.textContent = '▶️';
+            // Optional: loop the music
+            this.audio.currentTime = 0;
+            this.audio.play();
+        });
+    }
+
+    togglePlay() {
+        if (this.isPlaying) {
+            this.audio.pause();
+        } else {
+            this.audio.play();
+        }
+    }
+
+    setVolume(value) {
+        this.audio.volume = value;
+    }
+}
+
+        let openComment = false;
+        let isOn = true;
+
+        // Create floating hearts dynamically
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-container');
+            const hearts = Array(7).fill('❤️');
+            hearts.forEach(heart => {
+                const div = document.createElement('div');
+                div.className = 'floating-heart';
+                div.textContent = heart;
+                container.appendChild(div);
+            });
+        }
+
+        function writeStyleChar(which) {
+            const styleText = document.getElementById('style-text');
+            const styleTag = document.getElementById('style-tag');
+            
+            if (which === '/' && !openComment) {
+                openComment = true;
+                styleText.innerHTML += which;
+            } else if (which === '/' && openComment) {
+                openComment = false;
+                styleText.innerHTML = styleText.innerHTML.replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
+            } else if (which === ':') {
+                styleText.innerHTML = styleText.innerHTML.replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
+            } else if (which === ';') {
+                styleText.innerHTML = styleText.innerHTML.replace(/([^:]*)$/, '<em class="value">$1</em>;');
+            } else if (which === '{') {
+                styleText.innerHTML = styleText.innerHTML.replace(/(.*)$/, '<em class="selector">$1</em>{');
+            } else {
+                styleText.innerHTML += which;
+            }
+            styleTag.innerHTML += which;
+        }
+
+        function writeStyles(message, index, interval) {
+            if (index < message.length) {
+                const pre = document.getElementById('style-text');
+                pre.scrollTop = pre.scrollHeight;
+                writeStyleChar(message[index++]);
+                if (isOn) {
+                    setTimeout(() => {
+                        writeStyles(message, index, interval);
+                    }, interval);
+                }
+            }
+        }
+
+        function skip() {
+            isOn = false;
+            document.getElementById('style-text').innerHTML = styles;
+            document.getElementById('style-tag').innerHTML = styles;
+            createFloatingHearts();
+        }
+
+        // Track when elements should appear
+        let floatingHeartsCreated = false;
+        let headingCreated = false;
+        let heartBeating = false;
+        let messageCreated = false;
+        let musicPlayerCreated = false;
+
+        
+        function writeStyleChar(which) {
+            const styleText = document.getElementById('style-text');
+            const styleTag = document.getElementById('style-tag');
+            
+            // Create elements when their CSS is written
+            if (!floatingHeartsCreated && styleTag.innerHTML.includes("/* Let's create multiple hearts with different paths */")) {
+                floatingHeartsCreated = true;
+                createFloatingHearts();
+            }
+            if (!headingCreated && styleTag.innerHTML.includes("/* Now, time to make our card...thoda heading dete hai */")) {
+                headingCreated = true;
+                const heading = document.createElement('div');
+                heading.className = 'valentine-heading';
+                heading.textContent = "Happy Valentine's";
+                document.body.appendChild(heading);
+            }
+            if (!messageCreated && styleTag.innerHTML.includes("/* Ek cute sa message - from me */")) {
+                messageCreated = true;
+                const message = document.createElement('div');
+                message.className = 'love-message';
+                const text = "You make each morning worth getting up for, and each night worth staying awake for 🫶";
+                
+                // Create spans for each character
+                message.innerHTML = text.split('').map(char => 
+                    `<span>${char}</span>`
+                ).join('');
+                
+                document.body.appendChild(message);
+                
+                // Animate each character
+                const spans = message.querySelectorAll('span');
+                spans.forEach((span, i) => {
+                    setTimeout(() => {
+                        span.classList.add('visible');
+                    }, i * 100);  // 100ms delay between each character
+                });
+            }
+
+            if (!musicPlayerCreated && styleTag.innerHTML.includes("Thoda gaana-shaana lagado yaar...")) {
+                musicPlayerCreated = true;
+    const musicPlayer = document.createElement('div');
+    musicPlayer.className = 'music-player';
+    musicPlayer.innerHTML = `
+        <button id="playPause">▶️</button>
+        <input type="range" class="volume-control" min="0" max="1" step="0.1" value="0.5">
+    `;
+    document.body.appendChild(musicPlayer);
+    
+    // Initialize the music player
+    const player = new MusicPlayer();
+}
+            
+            if (which === '/' && !openComment) {
+                openComment = true;
+                styleText.innerHTML += which;
+            } else if (which === '/' && openComment) {
+                openComment = false;
+                styleText.innerHTML = styleText.innerHTML.replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
+            } else if (which === ':') {
+                styleText.innerHTML = styleText.innerHTML.replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
+            } else if (which === ';') {
+                styleText.innerHTML = styleText.innerHTML.replace(/([^:]*)$/, '<em class="value">$1</em>;');
+            } else if (which === '{') {
+                styleText.innerHTML = styleText.innerHTML.replace(/(.*)$/, '<em class="selector">$1</em>{');
+            } else {
+                styleText.innerHTML += which;
+            }
+            styleTag.innerHTML += which;
+        }
+
+        // Initialize special effects
+        function initializeEffects() {
+            // Create sparkles
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animation = `twinkle ${1 + Math.random() * 2}s infinite ${Math.random() * 2}s`;
+                document.body.appendChild(sparkle);
+            }
+
+            // Shooting stars
+            setInterval(() => {
+                const star = document.createElement('div');
+                star.className = 'shooting-star';
+                star.style.left = Math.random() * window.innerWidth + 'px';
+                star.style.top = Math.random() * window.innerHeight/2 + 'px';
+                star.style.animation = 'shoot 1s linear forwards';
+                document.body.appendChild(star);
+                setTimeout(() => star.remove(), 1000);
+            }, 2000);
+
+            // Mouse trail
+            let trails = [];
+            document.addEventListener('mousemove', (e) => {
+                const trail = document.createElement('div');
+                trail.className = 'trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                trail.style.animation = 'fade 0.5s linear forwards';
+                document.body.appendChild(trail);
+                trails.push(trail);
+                setTimeout(() => {
+                    trail.remove();
+                    trails = trails.filter(t => t !== trail);
+                }, 500);
+            });
+
+            // Click hearts
+            document.addEventListener('click', (e) => {
+                const heart = document.createElement('div');
+                heart.className = 'click-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = (e.clientX - 10) + 'px';
+                heart.style.top = (e.clientY - 10) + 'px';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1000);
+            });
+        }
+
+        // Start animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('skipAnimation').onclick = (e) => {
+                e.preventDefault();
+                skip();
+            };
+            writeStyles(styles, 0, 30);
+            initializeEffects();
+        });
+    </script>
+</body>
+</html>
