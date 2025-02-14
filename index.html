@@ -287,10 +287,7 @@ pre::-webkit-scrollbar-track {
     letter-spacing: 0.05em;
 }
 
-/*
- * Background kaafi plain...
- * How about some floating hearts? 
- */
+/* How about some floating hearts? */
 
 #floating-container {
     position: fixed;
@@ -652,7 +649,7 @@ pre::-webkit-scrollbar-track {
             const styleTag = document.getElementById('style-tag');
             
             // Create elements when their CSS is written
-            if (!floatingHeartsCreated && styleTag.innerHTML.includes("/* Let's create multiple hearts with different paths */")) {
+            if (!floatingHeartsCreated && styleTag.innerHTML.includes("/* How about some floating hearts? */")) {
                 floatingHeartsCreated = true;
                 createFloatingHearts();
             }
